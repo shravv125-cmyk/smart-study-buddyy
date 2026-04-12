@@ -16,6 +16,17 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | null>(null);
 
+const normalizeEmail = (email: string) => email.trim().toLowerCase();
+
+const getStoredUsers = () => {
+  const stored = localStorage.getItem("study-planner-users");
+  return stored ? JSON.parse(stored) as User[] : [];
+};
+
+const saveStoredUsers = (users: User[]) => {
+  localStorage.setItem("study-planner-users", JSON.stringify(users));
+};
+
 export const useAuth = () => {
   const ctx = useContext(AuthContext);
   if (!ctx) throw new Error("useAuth must be within AuthProvider");
@@ -29,16 +40,39 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   });
 
   const login = (email: string, _password: string) => {
-    const u = { id: crypto.randomUUID(), name: email.split("@")[0], email };
-    setUser(u);
-    localStorage.setItem("study-planner-user", JSON.stringify(u));
-    return true;
+    const normalizedEmail = normalizeEmail(email);
+    const users = getStoredUsers();
+    const existingUser = users.find(u => normalizeEmail(u.email) === normalizedEmail);
+
+    if (existingUser) {
+      setUser(existingUser);
+      localStorage.setItem("study-planner-user", JSON.stringify(existingUser));
+      return true;
+    }
+
+    return false;
   };
 
   const signup = (name: string, email: string, _password: string) => {
-    const u = { id: crypto.randomUUID(), name, email };
-    setUser(u);
-    localStorage.setItem("study-planner-user", JSON.stringify(u));
+    const normalizedEmail = normalizeEmail(email);
+    const users = getStoredUsers();
+    const existingUser = users.find(u => normalizeEmail(u.email) === normalizedEmail);
+
+    if (existingUser) {
+      setUser(existingUser);
+      localStorage.setItem("study-planner-user", JSON.stringify(existingUser));
+      return true;
+    }
+
+    const newUser: User = {
+      id: normalizedEmail,
+      name,
+      email: normalizedEmail,
+    };
+
+    saveStoredUsers([...users, newUser]);
+    setUser(newUser);
+    localStorage.setItem("study-planner-user", JSON.stringify(newUser));
     return true;
   };
 
