@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Figtree:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 33% 98%;
+    --foreground: 220 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 15%;
+
+    --primary: 217 72% 56%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 30% 95%;
+    --secondary-foreground: 220 25% 25%;
+
+    --muted: 210 25% 93%;
+    --muted-foreground: 215 15% 50%;
+
+    --accent: 168 50% 48%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 58%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 25% 90%;
+    --input: 214 25% 90%;
+    --ring: 217 72% 56%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 25% 15%;
+    --sidebar-primary: 217 72% 56%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 30% 95%;
+    --sidebar-accent-foreground: 220 25% 25%;
+    --sidebar-border: 214 25% 92%;
+    --sidebar-ring: 217 72% 56%;
+
+    --success: 152 55% 48%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 55%;
+    --warning-foreground: 0 0% 100%;
+
+    font-family: 'Figtree', sans-serif;
+  }
+
+  .dark {
+    --background: 222 30% 8%;
+    --foreground: 210 30% 95%;
+    --card: 222 25% 12%;
+    --card-foreground: 210 30% 95%;
+    --popover: 222 25% 12%;
+    --popover-foreground: 210 30% 95%;
+    --primary: 217 72% 56%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 217 25% 18%;
+    --secondary-foreground: 210 30% 90%;
+    --muted: 217 25% 18%;
+    --muted-foreground: 215 15% 60%;
+    --accent: 168 50% 48%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 30% 95%;
+    --border: 217 25% 20%;
+    --input: 217 25% 20%;
+    --ring: 217 72% 56%;
+    --sidebar-background: 222 25% 10%;
+    --sidebar-foreground: 210 30% 95%;
+    --sidebar-primary: 217 72% 56%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 217 25% 15%;
+    --sidebar-accent-foreground: 210 30% 90%;
+    --sidebar-border: 217 25% 18%;
+    --sidebar-ring: 217 72% 56%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+  }
+}
