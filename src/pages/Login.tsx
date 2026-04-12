@@ -21,7 +21,11 @@ const Login = () => {
       toast({ title: "Please fill in all fields", variant: "destructive" });
       return;
     }
-    login(email, password);
+    const success = login(email, password);
+    if (!success) {
+      toast({ title: "No account found for this email", variant: "destructive" });
+      return;
+    }
     toast({ title: "Welcome back! 👋" });
     navigate("/");
   };
