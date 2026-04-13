@@ -1,3 +1,9 @@
+# 🚀 Developed for Unimerge 1.0 Hackathon
+
+An innovative and intelligent study planner built as part of the Unimerge 1.0 Hackathon, designed to revolutionize how students prepare for exams. This project combines smart scheduling, real-time progress tracking, and AI-driven planning to create a powerful productivity tool for modern learners.
+
+Crafted with a focus on efficiency, usability, and scalability, Smart Study Flow empowers students to take control of their academic journey with data-driven insights and structured planning.
+
 # 📚 Smart Study Flow
 
 An intelligent study planner and progress tracker that helps students organize their exam preparation with AI-powered scheduling. Create multiple study plans, track progress in real-time, and maintain a complete history of completed exams.
